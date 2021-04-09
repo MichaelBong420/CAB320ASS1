@@ -204,18 +204,19 @@ class Problem(object):
         self.initial = initial
         self.goal = goal
 
-    def actions(self, state):
+    ##def actions(self, state):
         """Return the actions that can be executed in the given
         state. The result would typically be a list, but if there are
         many actions, consider yielding them one at a time in an
         iterator, rather than building them all at once."""
-        raise NotImplementedError
+        #raise NotImplementedError
 
-    def result(self, state, action):
+
+    #def result(self, state, action):
         """Return the state that results from executing the given
         action in the given state. The action must be one of
         self.actions(state)."""
-        raise NotImplementedError
+        #raise NotImplementedError
 
     def goal_test(self, state):
         """Return True if the state is a goal. The default method compares the
@@ -231,10 +232,10 @@ class Problem(object):
         and action. The default method costs 1 for every step in the path."""
         return c + 1
 
-    def value(self, state):
+    #def value(self, state):
         """For optimization problems, each state has a value.  Hill-climbing
         and related algorithms try to maximize this value."""
-        raise NotImplementedError
+        #raise NotImplementedError
         
 #______________________________________________________________________________
 

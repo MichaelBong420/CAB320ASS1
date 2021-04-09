@@ -414,8 +414,8 @@ def search_bb_dig_plan(mine):
     best_payoff, best_action_list, best_final_state
 
     '''
-    
-    raise NotImplementedError
+
+    return depth_first_graph_search(mine)
 
 
 
