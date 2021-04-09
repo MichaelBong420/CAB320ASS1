@@ -232,16 +232,18 @@ class Mine(search.Problem):
         '''        
         state = np.array(state)
 
+        actions = []
+
         for i in range(self.len_x):
             for j in range(self.len_y):
                 if state[i,j] is not 0:
                     if i >= 1 and i <= self.len_x - 1 and j <= self.len_y - 1:
                         if state[i-1,j] == 0:
-                            actions.append([i-1,j])
+                            actions.append((i-1,j))
                         if state[i+1,j] == 0:
-                            actions.append([i+1,j])
+                            actions.append((i+1,j))
                         if state[i,j+1] == 0:
-                            actions.append([i,j+1])
+                            actions.append((i,j+1))
 
         return actions
                 
@@ -439,7 +441,20 @@ def find_action_sequence(s0, s1):
     '''    
     # approach: among all columns for which s0 < s1, pick the column loc
     # with the smallest s0[loc]
-    raise NotImplementedError
+
+    #assert that s0 size == s1 size
+
+    actions = []
+    
+    for i in range(s0.shape[0]):
+            for j in range(s0.shape[1]):
+                if s0[i,j] is 0 and s1[i,j] is 1:
+                    s0[i,j] == 1;
+                    actions.append((i,j))
+
+
+
+
         
         
         
