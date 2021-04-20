@@ -196,6 +196,19 @@ class Mine(search.Problem):
         neighbouring surface cells.
 
         '''
+        
+        
+        '''
+       - This section takes in a 2d or 3d co-ordinate to test neighbouring 
+       - cells. A check must be made to determine if a 2d or 3d method is
+       - used.
+       - 
+       - each cell must be checked if they meet the dig_tolerance. If the cell
+       - could cause a cave-in, the cell is not appended. All cells surrounding
+       - the given co-ordinate loc that have met the dig_tolerance are returned 
+       - as a list.
+        
+        '''
         L=[]
         assert len(loc) in (1,2)
         if len(loc)==1:
@@ -233,7 +246,17 @@ class Mine(search.Problem):
         state = np.array(state)
 
         actions = []
-
+        '''
+       - In this section we want to return a generator populated with actions
+       - that can be used for a later def.
+        
+       - We can test neighbouring cells for a cel using surface_neighbours.
+       - This should already tests the dig_tolerance, and therefore will only
+       - return neighbours that are valid. Parameters can be made to append 
+       - actions to the generator based on the cells returned by 
+       - surface_neighbours
+        
+        '''
         for i in range(self.len_x):
             for j in range(self.len_y):
                 if state[i,j] is not 0:
